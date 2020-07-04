@@ -21,6 +21,7 @@
         <mysql.version>8.0.16</mysql.version>
         <lombok.version>1.18.12</lombok.version>
         <hutool-all.version>5.3.7</hutool-all.version>
+        <test-framework-common.version>1.0.0-SNAPSHOT</test-framework-common.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
     </properties>
@@ -79,6 +80,13 @@
                 <artifactId>lombok</artifactId>
                 <version>${lombok.version}</version>
                 <scope>provided</scope>
+            </dependency>
+
+            <!-- 框架公共类 -->
+            <dependency>
+                <groupId>com.test</groupId>
+                <artifactId>test-framework-common</artifactId>
+                <version>${test-framework-common.version}</version>
             </dependency>
 
         </dependencies>

@@ -18,7 +18,7 @@
         <spring-cloud.version>Hoxton.SR6</spring-cloud.version>
         <spring-cloud-alibaba.version>2.1.0.RELEASE</spring-cloud-alibaba.version>
         <mybatis-spring-boot.version>2.1.2</mybatis-spring-boot.version>
-        <mysql.version>8.0.16</mysql.version>
+        <mysql.version>8.0.28</mysql.version>
         <lombok.version>1.18.12</lombok.version>
         <hutool-all.version>5.3.7</hutool-all.version>
         <test-framework-common.version>1.0.0-SNAPSHOT</test-framework-common.version>

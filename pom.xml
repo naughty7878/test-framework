@@ -11,12 +11,12 @@
     <name>test-framework</name>
     <description>Framework project for Spring Cloud</description>
 
-
     <properties>
         <java.version>1.8</java.version>
         <spring-boot.version>2.7.0</spring-boot.version>
         <spring-cloud.version>2021.0.3</spring-cloud.version>
         <spring-cloud-alibaba.version>2021.0.1.0</spring-cloud-alibaba.version>
+        <mysql-connector.version>8.0.29</mysql-connector.version>
         <mybatis-spring-boot.version>2.1.2</mybatis-spring-boot.version>
         <hutool-all.version>5.3.7</hutool-all.version>
         <test-framework-common.version>1.0.0-SNAPSHOT</test-framework-common.version>
@@ -51,11 +51,19 @@
                 <scope>import</scope>
             </dependency>
 
-            <!-- mybatis -->
+            <!-- mysql -->
             <dependency>
-                <groupId>org.mybatis.spring.boot</groupId>
-                <artifactId>mybatis-spring-boot-starter</artifactId>
-                <version>${mybatis-spring-boot.version}</version>
+                <groupId>mysql</groupId>
+                <artifactId>mysql-connector-java</artifactId>
+                <version>${mysql-connector.version}</version>
+            </dependency>
+
+            <!-- mybatis -->
+            <!-- mp依赖 会自动的维护mybatis 以及 mybatis-spring 相关依赖-->
+            <dependency>
+                <groupId>com.baomidou</groupId>
+                <artifactId>mybatis-plus-boot-starter</artifactId>
+                <version>3.5.2</version>
             </dependency>
 
             <!-- hutool -->
@@ -70,6 +78,12 @@
                 <groupId>com.test</groupId>
                 <artifactId>test-framework-common</artifactId>
                 <version>${test-framework-common.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.test</groupId>
+                <artifactId>test-framework-mybatis-starter</artifactId>
+                <version>${project.version}</version>
             </dependency>
 
         </dependencies>

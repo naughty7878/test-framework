@@ -29,7 +29,6 @@
         <dependency>
             <groupId>com.baomidou</groupId>
             <artifactId>mybatis-plus-generator</artifactId>
-            <version>3.5.2</version>
         </dependency>
 
         <!-- SpringBoot中包含freemarker，逆向生成代码模板 -->

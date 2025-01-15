@@ -17,7 +17,7 @@
         <spring-cloud.version>2021.0.3</spring-cloud.version>
         <spring-cloud-alibaba.version>2021.0.1.0</spring-cloud-alibaba.version>
         <mysql-connector.version>8.0.29</mysql-connector.version>
-        <mybatis-spring-boot.version>2.1.2</mybatis-spring-boot.version>
+        <mybatis-plus.version>3.5.2</mybatis-plus.version>
         <hutool-all.version>5.3.7</hutool-all.version>
         <test-framework-common.version>1.0.0-SNAPSHOT</test-framework-common.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -63,7 +63,15 @@
             <dependency>
                 <groupId>com.baomidou</groupId>
                 <artifactId>mybatis-plus-boot-starter</artifactId>
-                <version>3.5.2</version>
+                <version>${mybatis-plus.version}</version>
+            </dependency>
+
+            <!-- mybatis-plus-generator，逆向生成代码 -->
+            <dependency>
+                <groupId>com.baomidou</groupId>
+                <artifactId>mybatis-plus-generator</artifactId>
+                <version>${mybatis-plus.version}</version>
+                <scope>test</scope>
             </dependency>
 
             <!-- hutool -->

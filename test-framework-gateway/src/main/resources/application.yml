@@ -15,6 +15,12 @@ spring:
           lower-case-service-id: true
 
 
+logging:
+  level:
+    root: debug
+  path: /data/logs
+
+
 management:
   endpoints:
     web:

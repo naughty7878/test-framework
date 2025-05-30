@@ -6,27 +6,38 @@
 
     <groupId>com.test</groupId>
     <artifactId>test-framework</artifactId>
-    <version>1.0.0-SNAPSHOT</version>
+    <version>2.0.0-SNAPSHOT</version>
     <packaging>pom</packaging>
+
     <name>test-framework</name>
     <description>Framework project for Spring Cloud</description>
 
     <properties>
-        <java.version>1.8</java.version>
-        <spring-boot.version>2.7.0</spring-boot.version>
-        <spring-cloud.version>2021.0.3</spring-cloud.version>
-        <spring-cloud-alibaba.version>2021.0.1.0</spring-cloud-alibaba.version>
-        <mysql-connector.version>8.0.29</mysql-connector.version>
-        <mybatis-plus.version>3.5.2</mybatis-plus.version>
-        <hutool-all.version>5.3.7</hutool-all.version>
-        <test-framework-common.version>1.0.0-SNAPSHOT</test-framework-common.version>
+        <!-- 基础配置 -->
+        <java.version>17</java.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+
+        <!-- Spring 相关 -->
+        <spring-boot.version>3.2.5</spring-boot.version>  <!-- Spring Boot 3.x 最新稳定版 -->
+        <spring-cloud.version>2023.0.4</spring-cloud.version>  <!-- 对应Spring Boot 3.2.x -->
+        <spring-cloud-alibaba.version>2023.0.3.2</spring-cloud-alibaba.version>  <!-- 支持JDK17的最新版 -->
+
+        <!-- 数据库相关 -->
+        <mysql-connector.version>8.0.30</mysql-connector.version>  <!-- MySQL驱动最新版 -->
+        <mybatis-plus.version>3.5.5</mybatis-plus.version>  <!-- MyBatis-Plus最新稳定版 -->
+
+        <!-- 工具类 -->
+        <hutool-all.version>5.8.26</hutool-all.version>  <!-- Hutool最新稳定版 -->
+
+        <!-- 自定义模块 -->
+        <test-framework-common.version>1.0.0-SNAPSHOT</test-framework-common.version>
     </properties>
 
     <dependencyManagement>
         <dependencies>
-            <!-- spring boot -->
+            <!-- ========== Spring 官方依赖 ========== -->
+            <!-- Spring Boot 依赖管理 -->
             <dependency>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-dependencies</artifactId>
@@ -34,7 +45,8 @@
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>
-            <!-- spring cloud -->
+
+            <!-- Spring Cloud 依赖管理 -->
             <dependency>
                 <groupId>org.springframework.cloud</groupId>
                 <artifactId>spring-cloud-dependencies</artifactId>
@@ -42,7 +54,8 @@
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>
-            <!-- spring cloud alibaba -->
+
+            <!-- Spring Cloud Alibaba 依赖管理 -->
             <dependency>
                 <groupId>com.alibaba.cloud</groupId>
                 <artifactId>spring-cloud-alibaba-dependencies</artifactId>
@@ -51,22 +64,22 @@
                 <scope>import</scope>
             </dependency>
 
-            <!-- mysql -->
+            <!-- ========== 数据库相关 ========== -->
+            <!-- MySQL 驱动 -->
             <dependency>
                 <groupId>mysql</groupId>
                 <artifactId>mysql-connector-java</artifactId>
                 <version>${mysql-connector.version}</version>
             </dependency>
 
-            <!-- mybatis -->
-            <!-- mp依赖 会自动的维护mybatis 以及 mybatis-spring 相关依赖-->
+            <!-- MyBatis-Plus 启动器 -->
             <dependency>
                 <groupId>com.baomidou</groupId>
                 <artifactId>mybatis-plus-boot-starter</artifactId>
                 <version>${mybatis-plus.version}</version>
             </dependency>
 
-            <!-- mybatis-plus-generator，逆向生成代码 -->
+            <!-- MyBatis-Plus 代码生成器 -->
             <dependency>
                 <groupId>com.baomidou</groupId>
                 <artifactId>mybatis-plus-generator</artifactId>
@@ -74,14 +87,15 @@
                 <scope>test</scope>
             </dependency>
 
-            <!-- hutool -->
+            <!-- ========== 工具类 ========== -->
+            <!-- Hutool 工具包 -->
             <dependency>
                 <groupId>cn.hutool</groupId>
                 <artifactId>hutool-all</artifactId>
                 <version>${hutool-all.version}</version>
             </dependency>
 
-            <!-- 框架公共类 -->
+            <!-- ========== 自定义模块 ========== -->
             <dependency>
                 <groupId>com.test</groupId>
                 <artifactId>test-framework-common</artifactId>
@@ -93,8 +107,22 @@
                 <artifactId>test-framework-mybatis-starter</artifactId>
                 <version>${project.version}</version>
             </dependency>
-
         </dependencies>
     </dependencyManagement>
 
+    <build>
+        <plugins>
+            <!-- 指定Maven编译版本 -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.11.0</version>
+                <configuration>
+                    <source>${java.version}</source>
+                    <target>${java.version}</target>
+                    <encoding>${project.build.sourceEncoding}</encoding>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
 </project>

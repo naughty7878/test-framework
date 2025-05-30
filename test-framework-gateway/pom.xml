@@ -6,29 +6,18 @@
     <parent>
         <groupId>com.test</groupId>
         <artifactId>test-framework</artifactId>
-        <version>1.0.0-SNAPSHOT</version>
+        <version>2.0.0-SNAPSHOT</version>
     </parent>
 
     <artifactId>test-framework-gateway</artifactId>
 
     <properties>
-        <test-framework.version>1.0.0-SNAPSHOT</test-framework.version>
-        <maven.compiler.source>8</maven.compiler.source>
-        <maven.compiler.target>8</maven.compiler.target>
+        <!-- 基础配置 -->
+        <java.version>17</java.version>
+        <maven.compiler.source>${java.version}</maven.compiler.source>
+        <maven.compiler.target>${java.version}</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
-
-    <dependencyManagement>
-        <dependencies>
-            <dependency>
-                <groupId>com.test</groupId>
-                <artifactId>test-framework</artifactId>
-                <version>${test-framework.version}</version>
-                <type>pom</type>
-                <scope>import</scope>
-            </dependency>
-        </dependencies>
-    </dependencyManagement>
 
     <dependencies>
         <!-- Spring Cloud Gateway -->
@@ -49,26 +38,20 @@
             <artifactId>spring-cloud-starter-alibaba-nacos-config</artifactId>
         </dependency>
 
-        <dependency>
-            <groupId>org.springframework.cloud</groupId>
-            <artifactId>spring-cloud-starter-bootstrap</artifactId>
-            <!-- 报错：Param 'serviceName' is illegal, serviceName is blank
-                 解决：默认不加载bootstrap.yml文件问题-->
-        </dependency>
-
-        <dependency>
-            <groupId>org.springframework.cloud</groupId>
-            <artifactId>spring-cloud-starter-loadbalancer</artifactId>
-            <!-- 问题：Alibaba在2021版本nacos中删除了Ribbon的jar包，
-                因此无法通过lb路由到指定微服务，出现了503情况。问题-->
-        </dependency>
     </dependencies>
 
     <build>
         <plugins>
+            <!-- 指定Maven编译版本 -->
             <plugin>
-                <groupId>org.springframework.boot</groupId>
-                <artifactId>spring-boot-maven-plugin</artifactId>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.11.0</version>
+                <configuration>
+                    <source>${java.version}</source>
+                    <target>${java.version}</target>
+                    <encoding>${project.build.sourceEncoding}</encoding>
+                </configuration>
             </plugin>
         </plugins>
     </build>

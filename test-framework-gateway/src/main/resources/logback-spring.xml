@@ -11,7 +11,7 @@
     <springProperty scope="context" name="LOG_PATH" source="logging.path" defaultValue="/var/log"/>
 
     <!-- 文件输出 -->
-    <property name="LOG_FILE_PATH" value="${LOG_PATH:-${java.io.tmpdir:-/tmp}}/${APP_NAME:-.}/application.log"/>
+    <property name="LOG_FILE_PATH" value="${LOG_PATH:-${java.io.tmpdir:-/tmp}}/${APP_NAME:-.}/app.log"/>
     <appender name="LOG_FILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
         <file>${LOG_FILE_PATH}</file>
         <encoder>
@@ -21,7 +21,7 @@
         </encoder>
         <rollingPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedRollingPolicy">
             <!-- 日志文件名格式 -->
-            <fileNamePattern>${LOG_PATH:-${java.io.tmpdir:-/tmp}}/archive/application.%d{yyyy-MM-dd}.%i.log</fileNamePattern>
+            <fileNamePattern>${LOG_PATH:-${java.io.tmpdir:-/tmp}}/archive/app.%d{yyyy-MM-dd}.%i.log</fileNamePattern>
             <!-- 保留的历史日志文件数量 -->
             <maxHistory>30</maxHistory>
             <!-- 单个日志文件的最大大小 -->

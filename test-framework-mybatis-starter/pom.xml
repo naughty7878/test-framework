@@ -9,7 +9,7 @@
         <version>2.0.0-SNAPSHOT</version>
     </parent>
 
-    <artifactId>test-framework-mybatis-starter-autoconfiger</artifactId>
+    <artifactId>test-framework-mybatis-starter</artifactId>
 
     <properties>
         <!-- 基础配置 -->
@@ -18,23 +18,40 @@
     </properties>
 
     <dependencies>
-        <!-- mybatis -->
+        <!-- MyBatis-Plus 启动器 -->
         <!-- mp依赖 会自动的维护mybatis 以及 mybatis-spring 相关依赖-->
         <dependency>
             <groupId>com.baomidou</groupId>
             <artifactId>mybatis-plus-boot-starter</artifactId>
+            <version>${mybatis-plus.version}</version>
+            <exclusions>
+                <exclusion>
+                    <groupId>org.mybatis</groupId>
+                    <artifactId>mybatis-spring</artifactId>
+                </exclusion>
+            </exclusions>
         </dependency>
 
-        <!-- mybatis-plus-generator，逆向生成代码 -->
+        <!-- MyBatis-Spring -->
+        <dependency>
+            <groupId>org.mybatis</groupId>
+            <artifactId>mybatis-spring</artifactId>
+            <version>3.0.3</version>
+        </dependency>
+
+        <!-- MyBatis-Plus 代码生成器 -->
         <dependency>
             <groupId>com.baomidou</groupId>
             <artifactId>mybatis-plus-generator</artifactId>
+            <version>${mybatis-plus.version}</version>
+            <scope>test</scope>
         </dependency>
 
         <!-- SpringBoot中包含freemarker，逆向生成代码模板 -->
         <dependency>
             <groupId>org.freemarker</groupId>
             <artifactId>freemarker</artifactId>
+            <scope>test</scope>
         </dependency>
 
         <!-- mysql -->

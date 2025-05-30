@@ -7,5 +7,7 @@ test-framework
 - 升级版本号为 2.0.0-SNAPSHOT
 - 注册中心nacos
 - 配置中心nacos
+- 公共模块：common
+- 网关：springcloud-gateway
 - 持久层：mybatis、mybatis-plus
 - 代码生成器：mybatis-plus的代码生成器

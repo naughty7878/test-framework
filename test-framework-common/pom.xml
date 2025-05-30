@@ -3,26 +3,28 @@
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
-    <parent>
-        <groupId>com.test</groupId>
-        <artifactId>test-framework</artifactId>
-        <version>2.0.0-SNAPSHOT</version>
-    </parent>
 
-    <artifactId>test-framework-mybatis-starter</artifactId>
+    <groupId>com.test</groupId>
+    <artifactId>test-framework-common</artifactId>
+    <version>2.0.0-SNAPSHOT</version>
 
     <properties>
         <!-- 基础配置 -->
         <java.version>17</java.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+
+        <lombok.version>1.18.24</lombok.version>
     </properties>
 
     <dependencies>
-        <!-- 引入自动配置模块 -->
+        <!-- lombok -->
         <dependency>
-            <groupId>com.test</groupId>
-            <artifactId>test-framework-mybatis-starter-autoconfiger</artifactId>
-            <version>${project.version}</version>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <version>${lombok.version}</version>
+            <scope>provided</scope>
         </dependency>
     </dependencies>
+
 </project>

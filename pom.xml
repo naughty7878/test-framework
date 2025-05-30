@@ -25,13 +25,11 @@
 
         <!-- 数据库相关 -->
         <mysql-connector.version>8.0.30</mysql-connector.version>  <!-- MySQL驱动最新版 -->
-        <mybatis-plus.version>3.5.5</mybatis-plus.version>  <!-- MyBatis-Plus最新稳定版 -->
+        <mybatis-plus.version>3.5.12</mybatis-plus.version>  <!-- MyBatis-Plus最新稳定版 -->
 
         <!-- 工具类 -->
         <hutool-all.version>5.8.26</hutool-all.version>  <!-- Hutool最新稳定版 -->
 
-        <!-- 自定义模块 -->
-        <test-framework-common.version>1.0.0-SNAPSHOT</test-framework-common.version>
     </properties>
 
     <dependencyManagement>
@@ -64,6 +62,7 @@
                 <scope>import</scope>
             </dependency>
 
+
             <!-- ========== 数据库相关 ========== -->
             <!-- MySQL 驱动 -->
             <dependency>
@@ -77,6 +76,19 @@
                 <groupId>com.baomidou</groupId>
                 <artifactId>mybatis-plus-boot-starter</artifactId>
                 <version>${mybatis-plus.version}</version>
+                <exclusions>
+                    <exclusion>
+                        <groupId>org.mybatis</groupId>
+                        <artifactId>mybatis-spring</artifactId>
+                    </exclusion>
+                </exclusions>
+            </dependency>
+
+            <!-- MyBatis-Spring -->
+            <dependency>
+                <groupId>org.mybatis</groupId>
+                <artifactId>mybatis-spring</artifactId>
+                <version>3.0.3</version>
             </dependency>
 
             <!-- MyBatis-Plus 代码生成器 -->
@@ -99,7 +111,7 @@
             <dependency>
                 <groupId>com.test</groupId>
                 <artifactId>test-framework-common</artifactId>
-                <version>${test-framework-common.version}</version>
+                <version>${project.version}</version>
             </dependency>
 
             <dependency>

@@ -119,6 +119,12 @@
                 <artifactId>test-framework-mybatis-starter</artifactId>
                 <version>${project.version}</version>
             </dependency>
+
+            <dependency>
+                <groupId>com.test</groupId>
+                <artifactId>test-framework-tracing-starter</artifactId>
+                <version>${project.version}</version>
+            </dependency>
         </dependencies>
     </dependencyManagement>
 

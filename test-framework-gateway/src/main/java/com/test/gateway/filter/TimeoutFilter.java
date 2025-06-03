@@ -24,7 +24,7 @@ public class TimeoutFilter implements GlobalFilter, Ordered {
 
     @Override
     public Mono<Void> filter(ServerWebExchange exchange, GatewayFilterChain chain) {
-//        log.info("==========TimeoutFilter==========");
+        log.info("==========TimeoutFilter==========");
         return chain.filter(exchange)
                 .timeout(Duration.ofSeconds(gatewayExpiry))
                 .onErrorResume(throwable -> {
@@ -39,7 +39,7 @@ public class TimeoutFilter implements GlobalFilter, Ordered {
 
     @Override
     public int getOrder() {
-        return 1; // 设置过滤器的执行顺序
+        return -9999; // 设置过滤器的执行顺序
     }
 
 }

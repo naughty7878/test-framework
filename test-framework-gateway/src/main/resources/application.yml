@@ -38,11 +38,6 @@ logging:
 
 
 management:
-  tracing:
-    enabled: true
-  webflux:
-    tracing:
-      enabled: true
   endpoints:
     web:
       exposure:

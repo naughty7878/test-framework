@@ -1,6 +1,6 @@
 # 端口
 server:
-  port: 20001
+  port: 20000
 
 spring:
   application:

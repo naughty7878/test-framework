@@ -21,7 +21,6 @@
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 
         <test-framework.version>2.0.0-SNAPSHOT</test-framework.version>
-
     </properties>
 
     <dependencyManagement>
@@ -89,8 +88,6 @@
         <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
-            <optional>true</optional>
-            <scope>provided</scope>
         </dependency>
 
     </dependencies>

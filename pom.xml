@@ -29,6 +29,7 @@
 
         <!-- 工具类 -->
         <hutool-all.version>5.8.26</hutool-all.version>  <!-- Hutool最新稳定版 -->
+        <lombok.version>1.18.30</lombok.version>
 
     </properties>
 
@@ -105,6 +106,13 @@
                 <groupId>cn.hutool</groupId>
                 <artifactId>hutool-all</artifactId>
                 <version>${hutool-all.version}</version>
+            </dependency>
+            <!-- Lombok -->
+            <dependency>
+                <groupId>org.projectlombok</groupId>
+                <artifactId>lombok</artifactId>
+                <version>${lombok.version}</version>
+                <scope>provided</scope>
             </dependency>
 
             <!-- ========== 自定义模块 ========== -->
